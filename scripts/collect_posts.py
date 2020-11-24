@@ -58,7 +58,7 @@ class IntegerDivision:
 def write_posts(subreddit, out_file, loops_remainder, listing):
     """
     :param subreddit: raw name of the subreddit as in the command line argument.
-    :param out_file: where to write the posts (in JSON format)
+    :param out_file: where to write the posts (in JSON format). Must be file handle, not string
     :param loops_remainder: object of type IntegerDivision that encodes the number of posts (n) and the chunk size (m).
     :param listing: new, hot, rising, etc. Will be passed into the query as an argument
     :return: void
