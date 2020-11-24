@@ -4,13 +4,40 @@ import argparse
 import math
 
 
-def write_posts(subreddit, out_file, remainder, times, listing):
+class IntegerDivision:
+    def __init__(self, n, m):
+        self.q, self.r = self.euclid_div(n, m)
+        self.n = n
+        self.m = m
+
+    def __add__(self, other):
+        result = self.n + other.n
+        if self.m != other.m:
+            raise ValueError("In order to add 2 such objects, the divider must be the same.")
+        return IntegerDivision(result, self.m)
+
+    def __call__(self):
+        return self. q, self.r
+
+    @staticmethod
+    def euclid_div(n, m):
+        """
+        :param n: original integer to divide
+        :param m: integer by which we divide n
+        :return: a tuple (q, r) where n = mq+r and r < m
+        """
+        q = math.floor(n / m)
+        r = n % m
+        return q, r
+
+
+def write_posts(subreddit, out_file, loops, remainder, listing):
     """
     :param subreddit: raw name of the subreddit as in the command line argument.
     :param out_file: where to write the posts (in JSON format)
     :param remainder: number of posts % 100. This and the next parameter are there because of the API limitation
     to only output at most 100 posts at a time.
-    :param times: biggest multiple of 100 less than or equal to the number of posts
+    :param loops: biggest multiple of 100 less than or equal to the number of posts
     :param listing: new, hot, rising, etc. Will be passed into the query as an argument
     :return: void
     """
@@ -29,10 +56,10 @@ def write_posts(subreddit, out_file, remainder, times, listing):
 
         data = raw_data.json()
         children = data['data']['children']
-        not_stickied_posts = [post['data'] for post in children if not post['data']['stickied']]
+        all_posts = [post['data'] for post in children]
         after = data['data']['after']
 
-        for post in not_stickied_posts:
+        for post in all_posts:
             line = json.dumps(post)
             out_file.write(line)
             out_file.write("\n")
@@ -40,8 +67,8 @@ def write_posts(subreddit, out_file, remainder, times, listing):
         return after
 
     after_var = None
-    for i in range(times + 1):
-        if i == times:
+    for i in range(loops + 1):
+        if i == loops:
             _ = loop(after_var, remainder)
         else:
             after_var = loop(after_var, 100)
@@ -63,11 +90,11 @@ def main():
     subreddit = args.subreddit
     listing = args.listing
     num_posts = args.num_posts
-    multiples_of_100 = math.floor(num_posts / 100)
-    remainder_division_by_100 = num_posts % 100
+
+    loops_remainder = IntegerDivision(num_posts, 100)
 
     with open(out_filename, "w") as f:
-        write_posts(subreddit, f, remainder_division_by_100, multiples_of_100, listing)
+        write_posts(subreddit, f, *loops_remainder(), listing)
 
 
 if __name__ == "__main__":
