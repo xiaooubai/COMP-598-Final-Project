@@ -28,10 +28,13 @@ def read_posts(file):
 def filter_posts(posts, regex_words):
     filtered_posts = []
     for post in posts:
+        append = False
         for word in regex_words:
             if (word[0].search(post['title']) is not None) or (word[1].search(post['title']) is not None) or \
                     (word[2].search(post['title']) is not None) or (word[3].search(post['title']) is not None):
-                filtered_posts.append(post)
+                append = True
+        if append:
+            filtered_posts.append(post)
 
     return filtered_posts
 
