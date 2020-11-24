@@ -11,13 +11,37 @@ class IntegerDivision:
         self.m = m
 
     def __add__(self, other):
+        if isinstance(other, int):
+            result = self.n + other
+            return IntegerDivision(result, self.m)
+
         result = self.n + other.n
         if self.m != other.m:
-            raise ValueError("In order to add 2 such objects, the divider must be the same.")
+            raise ValueError("In order to add 2 IntegerDivision objects, the divider must be the same.")
         return IntegerDivision(result, self.m)
 
+    def __sub__(self, other):
+        if isinstance(other, int):
+            result = self.n - other
+            return IntegerDivision(result, self.m)
+
+        result = self.n - other.n
+        if self.m != other.m:
+            raise ValueError("In order to substract 2 IntegerDivision objects, the divider must be the same.")
+        return IntegerDivision(result, self.m)
+
+    def __lt__(self, other):
+        if isinstance(other, int):
+            return self.n < other
+        return self.n < other.n
+
+    def __gt__(self, other):
+        if isinstance(other, int):
+            return self.n > other
+        return self.n > other.n
+
     def __call__(self):
-        return self. q, self.r
+        return self.q, self.r
 
     @staticmethod
     def euclid_div(n, m):
@@ -31,13 +55,11 @@ class IntegerDivision:
         return q, r
 
 
-def write_posts(subreddit, out_file, loops, remainder, listing):
+def write_posts(subreddit, out_file, loops_remainder, listing):
     """
     :param subreddit: raw name of the subreddit as in the command line argument.
     :param out_file: where to write the posts (in JSON format)
-    :param remainder: number of posts % 100. This and the next parameter are there because of the API limitation
-    to only output at most 100 posts at a time.
-    :param loops: biggest multiple of 100 less than or equal to the number of posts
+    :param loops_remainder: object of type IntegerDivision that encodes the number of posts (n) and the chunk size (m).
     :param listing: new, hot, rising, etc. Will be passed into the query as an argument
     :return: void
     """
@@ -56,7 +78,15 @@ def write_posts(subreddit, out_file, loops, remainder, listing):
 
         data = raw_data.json()
         children = data['data']['children']
-        all_posts = [post['data'] for post in children]
+
+        all_posts = []
+        for post in children:
+            if post['data']['stickied']:
+                continue
+            else:
+                all_posts.append(post['data'])
+
+        effective_num_posts = len(all_posts)
         after = data['data']['after']
 
         for post in all_posts:
@@ -64,14 +94,18 @@ def write_posts(subreddit, out_file, loops, remainder, listing):
             out_file.write(line)
             out_file.write("\n")
 
-        return after
+        return after, effective_num_posts
 
     after_var = None
-    for i in range(loops + 1):
-        if i == loops:
-            _ = loop(after_var, remainder)
-        else:
-            after_var = loop(after_var, 100)
+
+    while loops_remainder.q > 0:
+        m = loops_remainder.m
+        (after_var, effective_var) = loop(after_var, m)
+        loops_remainder -= effective_var
+
+    while loops_remainder > 0:
+        (after_var, effective_var) = loop(after_var, loops_remainder.r)
+        loops_remainder -= effective_var
 
 
 def main():
@@ -94,7 +128,7 @@ def main():
     loops_remainder = IntegerDivision(num_posts, 100)
 
     with open(out_filename, "w") as f:
-        write_posts(subreddit, f, *loops_remainder(), listing)
+        write_posts(subreddit, f, loops_remainder, listing)
 
 
 if __name__ == "__main__":
