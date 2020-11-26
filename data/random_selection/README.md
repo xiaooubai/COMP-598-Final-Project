@@ -7,11 +7,11 @@ Topics we have so far:
 
 3. lawsuit: Any mention about legal challenges, vote fraud and disputes, etc.
 
-4. rallies: Not really sure about this one. The posts identified with this topic must reference Trump rallies.
+4. covid: Mention about the coronavirus.
 
-5. transition: Any post making a reference to the process of transitioning from Biden to Trump, whether it's positive or negative
+5. transition: Any post making a reference to the process of transitioning from Biden to Trump or its consequences, whether it's positive or negative.
 
-6. dissatisfaction: negative feeling about the election, no matter what is the reason (is it because Trump lost? Because of feeling that Biden stole the election? Are people dissatisfied with Trump's service in the last 4 years?)
+6. dissatisfaction: Any form of condemnation or negative critique from one side about another.
 
 7. vote: Any mention to vote counts, candidate certification or allusion to support for one candidate or another and that is not tied to the legal problems (see lawsuit).
 
