@@ -3,16 +3,16 @@ Topics we have so far:
 
 1. cabinet
 
-2. economy
+2. economy\_climate
 
 3. lawsuit
 
 4. rallies
 
-5. celebration
+5. transition
 
-6.
+6. dissatisfaction
 
-7.
+7. vote
 
-8.
+8. 
