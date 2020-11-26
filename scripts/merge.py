@@ -7,7 +7,6 @@ def read_posts(file):
     with open(file, 'r') as f:
         for line in f:
             post = json.loads(line)
-            print("string")
             posts.append(post)
 
     return posts

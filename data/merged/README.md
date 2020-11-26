@@ -1,0 +1,1 @@
+### The combined JSON formatted posts of both subreddits in one file for each subreddit
