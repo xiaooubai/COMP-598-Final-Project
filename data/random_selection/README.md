@@ -18,3 +18,6 @@ Topics we have so far:
 8. 
 
 Coding rule: Whenever two topics seem to apply to a given post, assign the most general possible topic.
+
+  -Be as specific as possible, when u have 2 topics, 1 in the other, try to be as specific as possible
+  -suppose that instead of cabinet and transition, suppose you have 2 candidates for coding but they are not included 1 in the other (coronavirus and enviornment), then you cannot apply the first rule, you need to find encoding that is more general, that can include both of these 
