@@ -16,3 +16,5 @@ Topics we have so far:
 7. vote: Any mention to vote counts, candidate certification or allusion to support for one candidate or another and that is not tied to the legal problems (see lawsuit).
 
 8. 
+
+Coding rule: Whenever two topics seem to apply to a given post, assign the most general possible topic.
