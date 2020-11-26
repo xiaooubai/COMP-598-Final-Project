@@ -1,0 +1,1 @@
+### Where the posts are stored (in JSON format) as they are being collected on a daily basis
