@@ -28,6 +28,3 @@ Topics we have so far:
 1. "From the coronavirus to the environment, Biden plans to take government in new direction". Possible topics: `covid` and `environment`.
 However, they conflict since `covid` is not a specific case of `environment` and `environment` is not a specific case of `covid`.
 Hence we find a third topic `transition` which is relevant to the post since it includes `covid` and `environment`.
-
-2. "Biden's Treasury Secretary: Janet Yellen". Possible topics: `cabinet` and `transition`. 
-However, `cabinet` is a more specific version of `transition`, so we should assign `cabinet` to the post.
