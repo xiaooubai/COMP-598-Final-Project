@@ -31,4 +31,10 @@ Hence we find a third topic `transition` which is relevant to the post since it 
 
 2. "Biden's Treasury Secretary: Janet Yellen". Possible topics: `cabinet` and `transition`. 
 However, `cabinet` is a more specific version of `transition`, so we should assign `cabinet` to the post.
+---
+#### Comments
+
+1. We should maybe replace `cabinet` by `policy` so that each post previously associated with `cabinet` gets associated with `transition`.
+Moreover, `policy` would encompass any policy related to internal affairs, security, international affairs, etc.
+Post example to support this change: row 24 of `random_100_conservatives.tsv`
 
