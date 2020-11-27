@@ -1,7 +1,7 @@
 ## The tsv formatted posts that were randomly selected from the merged directory
 Topics we have so far:
 
-1. cabinet: Mentions the cabinet choice (of Biden).
+1. policy: encompasses any policy related to internal affairs, security, international affairs, etc.
 
 2. economy\_climate: Any mention to the economy or climate. I chose to put these together in a single topic because they're very intertwined especially in the context of the 2020 election, as climate change is a pressing issue and the main resistence arguments are economical.
 
@@ -9,7 +9,7 @@ Topics we have so far:
 
 4. covid: Mention about the coronavirus.
 
-5. transition: Any post making a reference to the process of transitioning from Biden to Trump or its consequences, whether it's positive or negative.
+5. transition: Any post making a reference to the process of transitioning from Biden to Trump or its consequences, whether it's positive or negative. Includes cabinet.
 
 6. dissatisfaction: Any form of condemnation or negative critique from one side about another.
 
@@ -31,10 +31,3 @@ Hence we find a third topic `transition` which is relevant to the post since it 
 
 2. "Biden's Treasury Secretary: Janet Yellen". Possible topics: `cabinet` and `transition`. 
 However, `cabinet` is a more specific version of `transition`, so we should assign `cabinet` to the post.
----
-#### Comments
-
-1. We should maybe replace `cabinet` by `policy` so that each post previously associated with `cabinet` gets associated with `transition`.
-Moreover, `policy` would encompass any policy related to internal affairs, security, international affairs, etc.
-Post example to support this change: row 24 of `random_100_conservatives.tsv`
-
