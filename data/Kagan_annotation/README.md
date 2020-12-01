@@ -1,4 +1,4 @@
-## The tsv formatted posts that were randomly selected from the merged directory
+## Reminder about topics
 Topics we have so far:
 
 1. policy: encompasses any policy related to internal affairs, security, international affairs, etc.
@@ -15,7 +15,7 @@ Topics we have so far:
 
 7. vote: Any mention to vote counts, candidate certification or allusion to support for one candidate or another and that is not tied to the legal problems (see lawsuit).
 
-8. racism: Post references hate speech, white supremacy, or any other topic about racism. 
+8. discrimination: Post references hate speech, white supremacy, or any other topic about discriminating a group of people (racism, sexism, ageism, etc.).
 ---
 ### Coding rules
 
